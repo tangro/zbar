@@ -65,7 +65,7 @@ int _zbar_process_image(zbar_processor_t *proc, zbar_image_t *img)
 	}
 
 	format = zbar_image_get_format(img);
-	zprintf(16, "processing: %.4s(%08" PRIx32 ") %dx%d @%p\n",
+	zprintf(16, "processing: %.4s(%08lx) %dx%d @%p\n",
 		(char *)&format, format, zbar_image_get_width(img),
 		zbar_image_get_height(img), zbar_image_get_data(img));
 

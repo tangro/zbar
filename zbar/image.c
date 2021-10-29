@@ -238,12 +238,12 @@ int zbar_image_write(const zbar_image_t *img, const char *filebase)
 	n = snprintf(filename, len, "%s.%.4s.zimg", filebase,
 		     (char *)&img->format);
     else
-	n = snprintf(filename, len, "%s.%08" PRIx32 ".zimg", filebase,
+	n = snprintf(filename, len, "%s.(%08lx).zimg", filebase,
 		     img->format);
     assert(n < len - 1);
     filename[len - 1] = '\0';
 
-    zprintf(1, "dumping %.4s(%08" PRIx32 ") image to %s\n",
+    zprintf(1, "dumping %.4s(%08lx) image to %s\n",
 	    (char *)&img->format, img->format, filename);
 
     f = fopen(filename, "w");
